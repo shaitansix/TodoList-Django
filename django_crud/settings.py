@@ -59,7 +59,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_crud.wsgi.application'
+WSGI_APPLICATION = 'django_crud.wsgi.app'
 
 
 # Database
