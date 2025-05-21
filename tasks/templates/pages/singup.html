@@ -1,0 +1,26 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+    <article class = 'singup-wrapper'>
+        <div class = 'singup-container'>
+            <span class = 'title-text'>Register</span>
+
+            <form class = 'form-custom' method = 'POST'>
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                <label for = 'username'>Username:</label>
+                <input class = 'input-custom' type = 'text' name = 'username' id = 'username' placeholder = 'Write your username' required>
+                
+                <label for = 'password1'>Password:</label>
+                <input class = 'input-custom' type = 'password' name = 'password1' id = 'password1' placeholder = 'Write your password' required>
+                
+                <label for = 'password2'>Confirm Password:</label>
+                <input class = 'input-custom' type = 'password' name = 'password2' id = 'password2' placeholder = 'Confirm your password' required>
+
+                <button class = 'btn-custom'>Register</button>
+            </form>
+
+            <span class = 'message-text'>{{ message }}</span>
+        </div>
+    </article>
+{% endblock %}

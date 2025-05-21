@@ -1,0 +1,23 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+    <article class = 'singin-wrapper'>
+        <div class = 'singin-container'>
+            <span class = 'title-text'>Login</span>
+
+            <form class = 'form-custom' method = 'POST'>
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                <label for = 'username'>Username:</label>
+                <input class = 'input-custom' type = 'text' name = 'username' id = 'username' placeholder = 'Write your username' required>
+                
+                <label for = 'password'>Password:</label>
+                <input class = 'input-custom' type = 'password' name = 'password' id = 'password' placeholder = 'Write your password' required>
+
+                <button class = 'btn-custom'>Login</button>
+            </form>
+
+            <span class = 'message-text'>{{ message }}</span>
+        </div>
+    </article>
+{% endblock %}

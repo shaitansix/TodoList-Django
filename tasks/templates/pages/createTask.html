@@ -1,0 +1,29 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+<article class = 'createTask-wrapper'>
+    <div class = 'createTask-container'>
+        <span class = 'title-text'>Create Task</span>
+
+        <form class = 'form-custom' method = 'POST'>
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+
+            <label for = 'title'>Title:</label>
+            <input class = 'input-custom' type = 'text' name = 'title' id = 'title' placeholder = 'Enter the title of the task' required>
+
+            <label for = 'description'>Description:</label>
+            <textarea class = 'input-custom textarea-custom' type = 'text' name = 'description' id = 'description' placeholder = 'Enter the description of the task' required></textarea>
+
+            <span class = 'checkbox-input'>
+                <input type = 'checkbox' name = 'important' id = 'important'>
+                <label for = 'important'>Important</label>
+            </span>
+
+            <button class = 'btn-custom'>Create</button>
+        </form>
+
+        <span class = 'message-text'>{{ message }}</span>
+        </div>
+</article>
+{% endblock %}

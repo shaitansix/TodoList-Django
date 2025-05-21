@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang = 'en'>
+    <head>
+        <meta charset = 'UTF-8'>
+        <meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+        <link rel = 'stylesheet' href = '{% static "stylesheets/layout.css" %}'>
+        <link rel = 'stylesheet' href = '{% static "stylesheets/home.css" %}'>
+        <link rel = 'stylesheet' href = '{% static "stylesheets/singup.css" %}'>
+        <link rel = 'stylesheet' href = '{% static "stylesheets/singin.css" %}'>
+        <link rel = 'stylesheet' href = '{% static "stylesheets/tasks.css" %}'>
+        <link rel = 'stylesheet' href = '{% static "stylesheets/taskDetail.css" %}'>
+        <link rel = 'stylesheet' href = '{% static "stylesheets/createTask.css" %}'>
+        <title>Django App</title>
+    </head>
+    <body>
+        <article class = 'navbar-wrapper'>
+            <nav class = 'navbar-container'>
+                <a class = 'navbar-name_app navbar-link' href = '{% url "home" %}'>Django App</a>
+
+                <span class = 'navbar-menu'>
+                    <a class = 'navbar-link' href = '{% url "home" %}'>Home</a>
+
+                    {% if request.user.is_authenticated %}
+                        <a class = 'navbar-link' href = '{% url "tasks_pending" %}'>Tasks Pending</a>
+                        <a class = 'navbar-link' href = '{% url "tasks_completed" %}'>Tasks Completed</a>
+                        <a class = 'navbar-link' href = '{% url "create_task" %}'>Create Task</a>
+                        <a class = 'navbar-link' href = '{% url "logout" %}'>Logout</a>
+                    {% else %}
+                        <a class = 'navbar-link' href = '{% url "register" %}'>Register</a>
+                        <a class = 'navbar-link' href = '{% url "login" %}'>Login</a>
+                    {% endif%}
+                </span>
+            </nav>
+        </article>
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

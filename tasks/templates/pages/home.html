@@ -1,0 +1,23 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+    <article class = 'home-wrapper'>
+        <div class = 'home-container'>
+            <span class = 'header-text'>Django App</span>
+            
+            <span>Welcome to the Django App! This is a simple task management application, you can register, login, create tasks, and manage them.</span>
+            
+            <div>
+                {% if request.user.is_authenticated %}
+                    <span>Hello, <span class = 'highlighted-text'>{{ request.user.username }}</span>!</span>
+                {% else %}
+                    <span>Please register or login to start using the app.</span>
+                    <span class = 'home-btn-group'>
+                        <a class = 'btn-custom' href = '{% url "register" %}'>Register</a>
+                        <a class = 'btn-custom' href = '{% url "login" %}'>Login</a>
+                    </span>
+                {% endif %}
+                </div>
+        </div>
+    </article>
+{% endblock %}

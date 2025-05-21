@@ -1,0 +1,58 @@
+.tasks-wrapper {
+    margin: 0 auto;
+    margin-top: 32px;
+
+    width: fit-content;
+}
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+}
+
+.tasks-container > :first-child {
+    align-self: center;
+}
+
+.tasks-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.tasks-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-item-title {
+    color: var(--dark);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.tasks-item-important {
+    display: inline-block;
+    padding: 4px 8px;
+
+    border-radius: 4px;
+    background-color: var(--primary-color-2);
+    color: var(--light);
+    font-size: 0.8rem;
+    cursor: default;
+}
+
+.tasks-item-owner {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.tasks-item-date {
+    color: var(--primary-color-2);
+    font-size: 0.8rem;
+    font-weight: 500;
+}

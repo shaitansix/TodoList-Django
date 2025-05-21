@@ -1,0 +1,29 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+    <article class = 'tasks-wrapper'>
+        <div class = 'tasks-container'>
+            <span class = 'header-text'>Tasks</span>
+
+            {% for task in tasks %}
+                <div class = 'tasks-item'>
+                    <article class = 'tasks-item-header'>
+                        <span>
+                            <a class = 'tasks-item-title' href = '{% url "task_update" task_id=task.id %}'>{{ task.title }}</a>
+                            {% if task.important %}
+                                <span class = 'tasks-item-important'>
+                                    Important
+                                </span>
+                            {% endif %}
+                        </span>
+
+                        <span class = 'tasks-item-owner'>{{ task.user.username }}</span>
+                    </article>
+
+                    <span class = 'tasks-item-description'>{{ task.description }}</span>
+                    <span class = 'tasks-item-date'>{{ task.created_at }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </article>
+{% endblock %}

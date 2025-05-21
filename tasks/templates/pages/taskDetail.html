@@ -1,0 +1,41 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+    <article class = 'taskDetail-wrapper'>
+        <div class = 'taskDetail-container'>
+            <span class = 'title-text'>{{ task.title }}</span>
+
+            <form class = 'form-custom' method = 'POST'>
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                
+                <label for = 'title'>Title:</label>
+                <input class = 'input-custom' type = 'text' name = 'title' id = 'title' value = '{{ task.title }}' placeholder = 'Enter the title of the task' required>
+
+                <label for = 'description'>Description:</label>
+                <textarea class = 'input-custom textarea-custom' type = 'text' name = 'description' id = 'description' placeholder = 'Enter the description of the task' required>{{ task.description }}</textarea>
+
+                <span class = 'checkbox-input'>
+                    <input type = 'checkbox' name = 'important' id = 'important' {% if task.important %} checked {% endif %}>
+                    <label for = 'important'>Important</label>
+                </span>
+
+                <button class = 'btn-custom'>Update</button>
+            </form>
+
+            <div class = 'taskDetail-btn-group'>
+                <form class = 'form-complete-custom' action = '{% url "task_complete" task_id=task.id %}' method = 'POST'>
+                    {% csrf_token %}
+                    <button class = 'btn-custom'>Complete</button>
+                </form>
+    
+                <form class = 'form-delete-custom' action = '{% url "task_delete" task_id=task.id %}' method = 'POST'>
+                    {% csrf_token %}
+                    <button class = 'btn-custom'>Delete</button>
+                </form>
+            </div>
+
+            <span class = 'message-text'>{{ message }}</span>
+        </div>
+    </article>
+{% endblock %}
