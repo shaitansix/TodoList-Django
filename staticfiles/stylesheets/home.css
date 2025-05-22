@@ -1,0 +1,38 @@
+.home-wrapper {
+    margin: 0 auto;
+    margin-top: 32px;
+
+    width: fit-content;
+}
+
+.home-container > :first-child {
+    align-self: center;
+}
+
+.home-container > :last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 0 auto;
+
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.home-container {
+    display: flex;
+    
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 600px;
+    gap: 16px;
+}
+
+.home-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}

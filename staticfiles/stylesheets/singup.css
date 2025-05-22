@@ -1,0 +1,14 @@
+.singup-wrapper {
+    margin: 0 auto;
+    margin-top: 32px;
+
+    width: fit-content;
+}
+
+.singup-container {
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
