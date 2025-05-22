@@ -1,9 +1,8 @@
 import os
-import environ
+from dotenv import load_dotenv
 from pathlib import Path
 
-env = environ.Env()
-environ.Env.read_env()
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,13 +78,12 @@ DATABASES = {
         'USER': os.environ.get('PGUSER'),
         'PASSWORD': os.environ.get('PGPASSWORD'),
         'HOST': os.environ.get('PGHOST'),
-        'PORT': int(os.environ.get('PGPORT', '5432')),
+        'PORT': os.environ.get('PGPORT', '5432'),
         'OPTIONS': {
-            'sslmode': 'require',
+            'sslmode': 'require'
         }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
